@@ -1,0 +1,405 @@
+Q.No.1. Write a c-program to print your Name, Father’s name, age and Grade. 
+Output: 
+                      Name : Aslam 
+                      Father’s Name : Ghulam Murtaza 
+                      Age : 25 years 
+                      Grade : A
+Answer: #include <stdio.h>
+
+int main() {
+    char name[] = "Aslam";
+    char fatherName[] = "Ghulam Murtaza";
+    int age = 25;
+    char grade = 'A';
+
+    printf("Name: %s\n", name);
+    printf("Father's Name: %s\n", fatherName);
+    printf("Age: %d years\n", age);
+    printf("Grade: %c\n", grade);
+
+    return 0;
+}
+Q.No.2. Write a C-program that asks the user to enter two integer numbers and print the sum and product of two given numbers. 
+Output: 
+                     Enter 1st number? 8 
+                     Enter 2nd number? 4 
+                --------------------------------------- 
+                      Sum of 8 and 4 is :   12 
+                      product of 8 and 4 : 32
+Answer: #include <stdio.h>
+
+int main() {
+    int num1, num2, sum, product;
+
+    printf("Enter 1st number: ");
+    scanf("%d", &num1);
+
+    printf("Enter 2nd number: ");
+    scanf("%d", &num2);
+
+    sum = num1 + num2;
+    product = num1 * num2;
+
+    printf("---------------------------------------\n");
+    printf("Sum of %d and %d is: %d\n", num1, num2, sum);
+    printf("Product of %d and %d is: %d\n", num1, num2, product);
+
+    return 0;
+}
+Q.No.3. Write a C-program that asks the user to enter Basic pay and print pay-slip of the Employee. Output:
+                                                    Please enter Basic pay?400 
+                                                                   
+                                                                  PAY SLIP 
+                                     Basic pay :                                  400 
+                                     House Rent (40%) :                   160 
+                                     Medical All ounce (18%) :        072 
+                                     Computer Allounce(15%):       060
+               ----------------------------------------------------------------------------- 
+                              Total pay:                                             692
+Answer: #include <stdio.h>
+
+int main() {
+    float basicPay, houseRent, medicalAllowance, computerAllowance, totalPay;
+
+    printf("Please enter Basic pay: ");
+    scanf("%f", &basicPay);
+
+    houseRent = 0.4 * basicPay;
+    medicalAllowance = 0.18 * basicPay;
+    computerAllowance = 0.15 * basicPay;
+    totalPay = basicPay + houseRent + medicalAllowance + computerAllowance;
+
+    printf("-------------------------------------------------------------\n");
+    printf("|                         PAY SLIP                           |\n");
+    printf("|-----------------------------------------------------------|\n");
+    printf("| Basic pay                : %-10.2f                     |\n", basicPay);
+    printf("| House Rent (40%%)         : %-10.2f                     |\n", houseRent);
+    printf("| Medical Allowance (18%%)  : %-10.2f                     |\n", medicalAllowance);
+    printf("| Computer Allowance (15%%) : %-10.2f                     |\n", computerAllowance);
+    printf("|-----------------------------------------------------------|\n");
+    printf("| Total pay                : %-10.2f                     |\n", totalPay);
+    printf("-------------------------------------------------------------\n");
+
+    return 0;
+}
+Q.No.4. Write a C-program to print the square and Cube of given number. 
+output: 
+                                 Please enter any one integer number? 3 
+                                                  Square of 3 is : 9 
+                                                  Cube of 3 is : 27
+Answer: #include <stdio.h>
+
+int main() {
+    int number, square, cube;
+
+    printf("Please enter any one integer number: ");
+    scanf("%d", &number);
+
+    square = number * number;
+    cube = number * number * number;
+
+    printf("Square of %d is: %d\n", number, square);
+    printf("Cube of %d is: %d\n", number, cube);
+
+    return 0;
+}
+Q.No.5. Write a c-program to convert a given amount in Coins? 
+Example: 
+        Enter any amount? 897 
+Output: 500   100    50    20    10    5    2     1
+                  1       3        1      2      0    1   1      0
+Answer: #include <stdio.h>
+
+int main() {
+    int amount;
+    
+    printf("Enter any amount: ");
+    scanf("%d", &amount);
+    
+    int denominations[] = {500, 100, 50, 20, 10, 5, 2, 1};
+    int coins[8] = {0};  // Array to store the count of each coin
+    
+    for (int i = 0; i < 8; i++) {
+        coins[i] = amount / denominations[i];
+        amount = amount % denominations[i];
+    }
+    
+    printf("Denominations: ");
+    for (int i = 0; i < 8; i++) {
+        printf("%d ", denominations[i]);
+    }
+    
+    printf("\nCount:        ");
+    for (int i = 0; i < 8; i++) {
+        printf("%2d ", coins[i]);
+    }
+    
+    return 0;
+}
+Q.No.6. Write a program to take input of Seat No, Name, Subjects & Marks and calculate the total and percentage, and display the output in the following format. 
+Example: 
+Enter name of Student ? Aslam Enter Seat No? 2k19/CS/05 
+Enter marks of English? 50 Enter Marks of Basic Electronics ? 60 
+Enter marks of Mathematics? 40 Enter marks of Computer Programming?70 
+                                                          M A R K S H E E T 
+                               Name : Aslam                           Seat No : 2k19/CS/05 
+                                  ------------------------------------------------------------ 
+                                      Subjects                                                       Marks
+                                           ----------------------------------------------------- 
+                                        1. English                                                      50 
+                                        2. Basic Electronics                                     60 
+                                        3. Mathematics                                           40 
+                                          4. Computer Programming                    70 
+                                               ----------------------------------------------- 
+                                             Total : 220               Percentage% : 55.00
+Answer: #include <stdio.h>
+
+int main() {
+    char name[50];
+    char seatNo[20];
+    int marksEnglish, marksElectronics, marksMaths, marksProgramming;
+    int totalMarks;
+    float percentage;
+
+    printf("Enter name of Student: ");
+    scanf("%s", name);
+
+    printf("Enter Seat No: ");
+    scanf("%s", seatNo);
+
+    printf("Enter marks of English: ");
+    scanf("%d", &marksEnglish);
+
+    printf("Enter marks of Basic Electronics: ");
+    scanf("%d", &marksElectronics);
+
+    printf("Enter marks of Mathematics: ");
+    scanf("%d", &marksMaths);
+
+    printf("Enter marks of Computer Programming: ");
+    scanf("%d", &marksProgramming);
+
+    totalMarks = marksEnglish + marksElectronics + marksMaths + marksProgramming;
+    percentage = (float)totalMarks / 4.0;
+
+    printf("\nM A R K S H E E T\n");
+    printf("Name: %s Seat No: %s\n", name, seatNo);
+    printf("------------------------------------------------------------\n");
+    printf("Subjects\tMarks\n");
+    printf("------------------------------------------------------------\n");
+    printf("1. English\t%d\n", marksEnglish);
+    printf("2. Basic Electronics\t%d\n", marksElectronics);
+    printf("3. Mathematics\t%d\n", marksMaths);
+    printf("4. Computer Programming\t%d\n", marksProgramming);
+    printf("------------------------------------------------------------\n");
+    printf("Total\t\t%d\n", totalMarks);
+    printf("Percentage%%\t%.2f\n", percentage);
+
+    return 0;
+}
+Q.No.07. Write a program in c to display as follows: 
+Example: 
+enter 1st number =                       8 
+enter last number=                       2 
+                                                            Sum of 8 and 2 is :                       08 
+                                                            Product of 8 and 2 is :                 16 
+                                                            Difference between 8 and 2 is : 06 
+                                                            Division of 8 and 2 is :                  04 
+                                                            remainder of 8 and 2 is :             00 
+                                                     -------------------------------------------------------------- 
+                                                           Total is :                                            34
+Answer: #include <stdio.h>
+
+int main() {
+    int firstNumber, lastNumber;
+    int sum, product, difference, division, remainder, total;
+
+    printf("Enter 1st number: ");
+    scanf("%d", &firstNumber);
+
+    printf("Enter last number: ");
+    scanf("%d", &lastNumber);
+
+    sum = firstNumber + lastNumber;
+    product = firstNumber * lastNumber;
+    difference = firstNumber - lastNumber;
+    division = firstNumber / lastNumber;
+    remainder = firstNumber % lastNumber;
+    total = sum + product + difference + division + remainder;
+
+    printf("Sum of %-2d and %-2d is : %02d\n", firstNumber, lastNumber, sum);
+    printf("Product of %-2d and %-2d is : %02d\n", firstNumber, lastNumber, product);
+    printf("Difference between %-2d and %-2d is : %02d\n", firstNumber, lastNumber, difference);
+    printf("Division of %-2d and %-2d is : %02d\n", firstNumber, lastNumber, division);
+    printf("Remainder of %-2d and %-2d is : %02d\n", firstNumber, lastNumber, remainder);
+    printf("-----------------------------------------\n");
+    printf("Total is : %-33d\n", total);
+
+    return 0;
+}
+Q.No.08. Write a c-program to convert a given Seconds into Hours, Minutes and Seconds? 
+Output: 
+           Input Seconds? 570 
+                                Hours   Minutes   Seconds 
+                                   1              3              30
+Answer: #include <stdio.h>
+
+int main() {
+    int seconds, hours, minutes;
+
+    printf("Input Seconds? ");
+    scanf("%d", &seconds);
+
+    hours = seconds / 3600;  // 1 hour = 3600 seconds
+    seconds %= 3600;
+    minutes = seconds / 60;  // 1 minute = 60 seconds
+    seconds %= 60;
+
+    printf("Hours   Minutes   Seconds\n");
+    printf("%-7d %-9d %-7d\n", hours, minutes, seconds);
+
+    return 0;
+}
+Q.No.09. Write a c-program to convert a given number of Days in terms of Years, Weeks and Days.
+Answer: #include <stdio.h>
+
+int main() {
+    int days, years, weeks, remainingDays;
+
+    printf("Input Days? ");
+    scanf("%d", &days);
+
+    years = days / 365;          // 1 year = 365 days
+    weeks = (days % 365) / 7;    // 1 week = 7 days
+    remainingDays = days % 7;
+
+    printf("Years: %d\n", years);
+    printf("Weeks: %d\n", weeks);
+    printf("Days: %d\n", remainingDays);
+
+    return 0;
+}
+Q.No.10. Write a program to read two integers N1 and N2 and Swap their values. 
+Output: Enter value of N1 ? 72 
+               Enter value of N2 ? 38 
+                                                       Value of N1 is : 38 
+                                                       Value of N2 is : 72
+Answer: #include <stdio.h>
+
+int main() {
+    int N1, N2, temp;
+
+    printf("Enter value of N1? ");
+    scanf("%d", &N1);
+
+    printf("Enter value of N2? ");
+    scanf("%d", &N2);
+
+    temp = N1;
+    N1 = N2;
+    N2 = temp;
+
+    printf("Value of N1 is: %d\n", N1);
+    printf("Value of N2 is: %d\n", N2);
+
+    return 0;
+}
+Q.No.11. Write a program that inputs one five-digit number, separates the number into its individual digits and prints the digits separated from one another by three spaces and also print sum of five-digits? 
+Output: 
+                         Please enter five-digit number ? 43215  
+                         Separated from one an other by three spaces: 4   3   2   1   5 
+                           Sum of five digits: 15
+Answer: #include <stdio.h>
+
+int main() {
+    int number, digit, sum = 0;
+
+    printf("Please enter a five-digit number: ");
+    scanf("%d", &number);
+
+    printf("Separated from one another by three spaces: ");
+
+    // Extracting and printing individual digits
+    digit = number / 10000;  // Extract first digit
+    printf("%d   ", digit);
+    sum += digit;
+
+    digit = (number / 1000) % 10;  // Extract second digit
+    printf("%d   ", digit);
+    sum += digit;
+
+    digit = (number / 100) % 10;  // Extract third digit
+    printf("%d   ", digit);
+    sum += digit;
+
+    digit = (number / 10) % 10;  // Extract fourth digit
+    printf("%d   ", digit);
+    sum += digit;
+
+    digit = number % 10;  // Extract fifth digit
+    printf("%d\n", digit);
+    sum += digit;
+
+    printf("Sum of five digits: %d\n", sum);
+
+    return 0;
+}
+Q.No.12. Write a c program to print ASCII value of given character. 
+                            Enter any Character ? A 
+                                             ASCII Value of A character is : 65
+Answer: #include <stdio.h>
+
+int main() {
+    char character;
+
+    printf("Enter any character: ");
+    scanf("%c", &character);
+
+    printf("ASCII Value of %c character is: %d\n", character, character);
+
+    return 0;
+}
+Q.No.13. Write a c program to reverse any number. 
+output: 
+        Enter any number? 3452 
+        Reverse of 3452 is: 2543
+Answer: #include <stdio.h>
+
+int main() {
+    int number, reversedNumber = 0, remainder;
+
+    printf("Enter any number: ");
+    scanf("%d", &number);
+
+    while (number != 0) {
+        remainder = number % 10;           // Get the last digit
+        reversedNumber = reversedNumber * 10 + remainder;   // Append the digit to reversedNumber
+        number /= 10;                      // Remove the last digit from number
+    }
+
+    printf("Reverse of %d is: %d\n", number, reversedNumber);
+
+    return 0;
+}
+Q.No.14. Write a c program to find out sum of digits of given number. 
+Output: 
+            Enter any number? 7453 
+            Sum of digits = 19
+Answer: #include <stdio.h>
+
+int main() {
+    int number, sum = 0, digit;
+
+    printf("Enter any number: ");
+    scanf("%d", &number);
+
+    while (number != 0) {
+        digit = number % 10;     // Get the last digit
+        sum += digit;            // Add the digit to sum
+        number /= 10;            // Remove the last digit from number
+    }
+
+    printf("Sum of digits = %d\n", sum);
+
+    return 0;
+}
